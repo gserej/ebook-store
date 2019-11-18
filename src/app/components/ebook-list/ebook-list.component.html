@@ -1,0 +1,24 @@
+<div fxLayout="row wrap" fxLayout.xs="column"  fxLayoutAlign="start start">
+  <mat-card class="ebook-card" *ngFor="let ebook of ebooks">
+    <mat-card-header>
+      <mat-card-title>{{ebook.title}}</mat-card-title>
+      <mat-card-subtitle>{{ebook.date.toDateString()}}</mat-card-subtitle>
+    </mat-card-header>
+
+
+    <mat-card-content class="mat-card-content">
+      <img [src]="ebook.imageUrl" alt="Cannot load a photo.">
+      <ul>
+        <li>Author: <span [innerHTML]="ebook.author"></span></li>
+        <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
+        <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
+        <li>Language: <span [innerHTML]="ebook.language"></span></li>
+        <li>Format: <span [innerHTML]="ebook.format"></span></li>
+      </ul>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button  routerLink="/{{ebook.key}}" id="mat-button" mat-raised-button color="primary">Read more</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
