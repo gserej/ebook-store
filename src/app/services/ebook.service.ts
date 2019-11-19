@@ -1,21 +1,36 @@
-import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Ebook} from '../ebook';
-import {EBOOKS} from '../mock-ebooks';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Ebook} from '../model/ebook';
+import {HttpClient} from '@angular/common/http';
+import {ApiResponse} from '../model/api.response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EbookService {
 
-  constructor() { }
+  private baseUrl = 'http://localhost:8080/api/v1/ebooks';
 
-  getEbooks(): Observable<Ebook[]> {
-    const ebooks: Ebook[] = EBOOKS;
-    return of(ebooks);
+  constructor(private http: HttpClient) {
   }
-  getEbook(key: string): Observable<Ebook> {
-    const ebooks: Ebook[] = EBOOKS.filter(a => a.key === key);
-    return of(ebooks[0]);
+
+  getEbooks(): Observable<any> {
+    return this.http.get(this.baseUrl);
+  }
+
+  getEbookById(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + '/' + id);
+  }
+
+  createEbook(ebook: Ebook): Observable<any> {
+    return this.http.post(this.baseUrl, ebook);
+  }
+
+  updateEbook(ebook: Ebook): Observable<ApiResponse> {
+    return this.http.put<ApiResponse>(this.baseUrl + '/' + ebook.id, ebook);
+  }
+
+  deleteEbook(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + '/' + id);
   }
 }

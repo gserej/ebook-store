@@ -1,4 +1,4 @@
-import { Ebook } from './ebook';
+import {Ebook} from './ebook';
 
 describe('Ebook', () => {
   it('should create an instance', () => {

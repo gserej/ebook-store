@@ -1,5 +1,14 @@
 <app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
+<mat-sidenav-container fullscreen id="container">
+  <mat-sidenav fxHide.lt-sm id="sidenav" mode="side" opened position="end">
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 <app-footer></app-footer>
-
-

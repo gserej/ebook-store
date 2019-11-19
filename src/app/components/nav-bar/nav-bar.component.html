@@ -1,12 +1,17 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <h1>Ebook store</h1>
+    <i class="material-icons">menu_book</i>
     <div>
       <a mat-button [routerLink]="'/ebooks'"> Ebooks </a>
       <a mat-button [routerLink]="'/about'"> About </a>
+      <a [routerLink]="'/create-ebook'" mat-button> Create Ebook </a>
     </div>
     <span class="menu-spacer"></span>
-    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+    <button class="example-icon" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
   </mat-toolbar-row>
 
 </mat-toolbar>

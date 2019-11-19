@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Ebook} from '../../ebook';
+import {Ebook} from '../../model/ebook';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EbookService} from '../../services/ebook.service';
 import {Meta} from '@angular/platform-browser';
@@ -22,10 +22,10 @@ export class EbookDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const key = params.key;
-      this.ebookService.getEbook(key).subscribe(ebook => {
+      const id = params.id;
+      this.ebookService.getEbookById(id).subscribe(ebook => {
         if (ebook === undefined) {
-          this.router.navigateByUrl('404');
+          this.router.navigate(['404']);
           return;
         }
         this.ebook = ebook;

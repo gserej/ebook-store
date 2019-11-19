@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Ebook} from '../../ebook';
+import {Component, OnInit} from '@angular/core';
+import {Ebook} from '../../model/ebook';
 import {EbookService} from '../../services/ebook.service';
 
 
@@ -9,16 +9,30 @@ import {EbookService} from '../../services/ebook.service';
   styleUrls: ['./ebook-list.component.css']
 })
 export class EbookListComponent implements OnInit {
-  ebooks: Ebook[] = [];
+  ebooks: Array<Ebook>;
 
-  constructor(private ebookService: EbookService) { }
+  constructor(private ebookService: EbookService) {
+  }
 
   ngOnInit() {
     this.getEbooks();
-    console.log(this.ebooks);
   }
 
   getEbooks(): void {
-    this.ebookService.getEbooks().subscribe(ebooks => (this.ebooks = ebooks));
+    this.ebookService.getEbooks()
+      .subscribe(data => {
+        this.ebooks = data;
+      });
+
+  }
+
+  deleteEbook(id: number) {
+    this.ebookService.deleteEbook(id)
+      .subscribe(
+        () => {
+          this.getEbooks();
+        },
+        error => console.log(error));
+    this.getEbooks();
   }
 }

@@ -9,6 +9,7 @@ mat-card-content img {
   margin-left: 25px;
   max-width: 220px;
   max-height: 270px;
+  border: 1px solid black;
 }
 mat-card-content ul {
   list-style-type:none;

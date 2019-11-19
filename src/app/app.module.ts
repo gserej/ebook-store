@@ -9,9 +9,22 @@ import {AboutComponent} from './components/about/about.component';
 import {EbookDetailsComponent} from './components/ebook-details/ebook-details.component';
 import {EbookListComponent} from './components/ebook-list/ebook-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
+import {CreateEbookComponent} from './components/create-ebook/create-ebook.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
 
 
 @NgModule({
@@ -23,6 +36,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     EbookDetailsComponent,
     EbookListComponent,
     NotFoundComponent,
+    CreateEbookComponent,
+    EditEbookComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -34,9 +49,16 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatCardModule,
     MatGridListModule,
     FlexLayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }

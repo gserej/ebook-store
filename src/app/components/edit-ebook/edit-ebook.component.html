@@ -1,0 +1,18 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Edit User</h2>
+  <form (ngSubmit)="onSubmit()" [formGroup]="editForm">
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input class="form-control" formControlName="title" id="title" name="username" placeholder="Title" type="text">
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input class="form-control" formControlName="author" id="author" name="authore" placeholder="author">
+    </div>
+
+
+    <button class="btn btn-success">Update</button>
+  </form>
+</div>

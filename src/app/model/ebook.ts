@@ -3,7 +3,6 @@ export class Ebook {
   title = '';
   key = '';
   date: Date = new Date();
-  content = '';
   description = '';
   imageUrl = '';
   author = '';

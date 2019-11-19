@@ -1,13 +1,13 @@
-<div fxLayout="row wrap" fxLayout.xs="column"  fxLayoutAlign="start start">
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start none">
   <mat-card class="ebook-card" *ngFor="let ebook of ebooks">
     <mat-card-header>
       <mat-card-title>{{ebook.title}}</mat-card-title>
-      <mat-card-subtitle>{{ebook.date.toDateString()}}</mat-card-subtitle>
+      <!--      <mat-card-subtitle>{{ebook.date.toDateString()}}</mat-card-subtitle>-->
     </mat-card-header>
 
 
     <mat-card-content class="mat-card-content">
-      <img [src]="ebook.imageUrl" alt="Cannot load a photo.">
+      <img [src]="ebook.imageUrl" alt="Cannot load a photo." class='ebook-image'>
       <ul>
         <li>Author: <span [innerHTML]="ebook.author"></span></li>
         <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
@@ -18,7 +18,9 @@
 
     </mat-card-content>
     <mat-card-actions>
-      <button  routerLink="/{{ebook.key}}" id="mat-button" mat-raised-button color="primary">Read more</button>
+      <button color="primary" id="mat-button" mat-raised-button routerLink="/{{ebook.id}}">Read more</button>
+      <button color="primary" mat-raised-button routerLink="/update/{{ebook.id}}">Edit</button>
+      <button (click)="deleteEbook(ebook.id)" color="primary" mat-raised-button>Delete</button>
     </mat-card-actions>
   </mat-card>
 </div>
