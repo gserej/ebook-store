@@ -2,15 +2,17 @@
       rel="stylesheet">
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <i class="material-icons">menu_book</i>
     <div>
       <a mat-button [routerLink]="'/ebooks'"> Ebooks </a>
       <a mat-button [routerLink]="'/about'"> About </a>
-      <a [routerLink]="'/create-ebook'" mat-button> Create Ebook </a>
+      <a *ngIf="isLoggedIn" [routerLink]="'/create-ebook'" mat-button> Create Ebook </a>
+      <a *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button> Login </a>
+      <a (click)="handleLogout()" *ngIf="isLoggedIn" mat-button> Logout</a>
     </div>
     <span class="menu-spacer"></span>
     <button class="example-icon" mat-icon-button>
-      <mat-icon>menu</mat-icon>
+
+    <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar-row>
 

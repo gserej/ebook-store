@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Ebook} from '../../model/ebook';
 import {EbookService} from '../../services/ebook.service';
+import {AuthService} from '../../services/auth.service';
 
 
 @Component({
@@ -10,12 +11,17 @@ import {EbookService} from '../../services/ebook.service';
 })
 export class EbookListComponent implements OnInit {
   ebooks: Array<Ebook>;
+  loggedAsAdmin = false;
 
-  constructor(private ebookService: EbookService) {
+  page = 1;
+
+  constructor(private ebookService: EbookService,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
     this.getEbooks();
+    this.loggedAsAdmin = this.authService.isUserLoggedIn();
   }
 
   getEbooks(): void {

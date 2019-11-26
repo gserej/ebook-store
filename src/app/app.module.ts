@@ -23,8 +23,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {CreateEbookComponent} from './components/create-ebook/create-ebook.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
+import {LoginComponent} from './components/login/login.component';
+import {HttpinterceptorService} from './services/httpinterceptor.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -38,8 +41,10 @@ import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
     NotFoundComponent,
     CreateEbookComponent,
     EditEbookComponent,
+    LoginComponent,
   ],
   imports: [
+    NgbModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -56,7 +61,13 @@ import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpinterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

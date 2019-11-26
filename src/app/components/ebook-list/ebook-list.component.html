@@ -1,26 +1,57 @@
-<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="start none">
-  <mat-card class="ebook-card" *ngFor="let ebook of ebooks">
-    <mat-card-header>
-      <mat-card-title>{{ebook.title}}</mat-card-title>
-      <!--      <mat-card-subtitle>{{ebook.date.toDateString()}}</mat-card-subtitle>-->
-    </mat-card-header>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-sm-9">
+      <div class="card-deck">
+        <div class="row row-cols-1 row-cols-sm-3">
+          <div *ngFor="let ebook of ebooks" class="col mb-4">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-sm-4">
+                  <img [src]="ebook.imageUrl" alt="..." class="card-img-top">
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-body " style="min-width: 350px;">
+                    <h5 class="card-title">{{ebook.title}}</h5>
+                    <ul>
+                      <li>Author: <span [innerHTML]="ebook.author"></span></li>
+                      <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
+                      <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
+                      <li>Language: <span [innerHTML]="ebook.language"></span></li>
+                      <li>Format: <span [innerHTML]="ebook.format"></span></li>
+                    </ul>
+                    <button class="btn btn-primary" routerLink="/{{ebook.id}}" type="button">Read more</button>
+                    <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/update/{{ebook.id}}"
+                            type="button">
+                      Edit
+                    </button>
+                    <button (click)="deleteEbook(ebook.id)" *ngIf="loggedAsAdmin" class="btn btn-danger" type="button">
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-    <mat-card-content class="mat-card-content">
-      <img [src]="ebook.imageUrl" alt="Cannot load a photo." class='ebook-image'>
-      <ul>
-        <li>Author: <span [innerHTML]="ebook.author"></span></li>
-        <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
-        <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
-        <li>Language: <span [innerHTML]="ebook.language"></span></li>
-        <li>Format: <span [innerHTML]="ebook.format"></span></li>
+      <ngb-pagination [(page)]="page" [collectionSize]="6" aria-label="Default pagination"></ngb-pagination>
+    </div>
+
+
+    <div class="col-sm-3">
+      <h4 class="mb-3">
+        <span class="text-muted">Categories</span>
+      </h4>
+
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6>Product name</h6>
+          </div>
+        </li>
       </ul>
-
-    </mat-card-content>
-    <mat-card-actions>
-      <button color="primary" id="mat-button" mat-raised-button routerLink="/{{ebook.id}}">Read more</button>
-      <button color="primary" mat-raised-button routerLink="/update/{{ebook.id}}">Edit</button>
-      <button (click)="deleteEbook(ebook.id)" color="primary" mat-raised-button>Delete</button>
-    </mat-card-actions>
-  </mat-card>
+    </div>
+  </div>
 </div>
