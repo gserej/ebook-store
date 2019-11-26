@@ -6,21 +6,24 @@ import {EbookDetailsComponent} from './components/ebook-details/ebook-details.co
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {CreateEbookComponent} from './components/create-ebook/create-ebook.component';
 import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
+import {LoginComponent} from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path: 'ebooks', component: EbookListComponent},
-  { path: 'about', component: AboutComponent},
+  {path: 'ebooks', component: EbookListComponent},
+  {path: 'about', component: AboutComponent},
   {path: 'create-ebook', component: CreateEbookComponent},
-  { path: '404', component: NotFoundComponent},
-  { path: '', component: EbookListComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '404', component: NotFoundComponent},
+  {path: '', component: EbookListComponent},
   {path: ':id', component: EbookDetailsComponent},
   {path: 'update/:id', component: EditEbookComponent},
-  { path: '**', component: NotFoundComponent},
+  {path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
