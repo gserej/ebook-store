@@ -29,7 +29,6 @@ export class EbookListComponent implements OnInit {
       .subscribe(data => {
         this.ebooks = data;
       });
-
   }
 
   deleteEbook(id: number) {

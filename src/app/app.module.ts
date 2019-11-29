@@ -28,6 +28,8 @@ import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
 import {LoginComponent} from './components/login/login.component';
 import {HttpinterceptorService} from './services/httpinterceptor.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CategoryListComponent} from './components/category-list/category-list.component';
+import {GrdFilterPipe} from './filter.pipe';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CreateEbookComponent,
     EditEbookComponent,
     LoginComponent,
+    CategoryListComponent,
+    GrdFilterPipe,
   ],
   imports: [
     NgbModule,
