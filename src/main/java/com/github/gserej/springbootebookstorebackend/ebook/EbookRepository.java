@@ -1,6 +1,5 @@
-package com.github.gserej.springbootebookstorebackend.repository;
+package com.github.gserej.springbootebookstorebackend.ebook;
 
-import com.github.gserej.springbootebookstorebackend.model.Ebook;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
