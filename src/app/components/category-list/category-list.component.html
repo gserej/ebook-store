@@ -7,7 +7,7 @@
 </div>
 
 <ul class="list-group mb-3">
-  <li *ngFor="let category of categories| grdFilter: {name: searchText}; let i=index;" class="list-group-item">
+  <li *ngFor="let category of categories | grdFilter: {name: searchText}; let i=index;" class="list-group-item">
     <div>
       <h6>{{category.toString()}}</h6>
     </div>

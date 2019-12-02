@@ -26,4 +26,6 @@ export class NavBarComponent implements OnInit {
     this.ngOnInit();
     this.router.navigateByUrl('/');
   }
+
+
 }

@@ -1,6 +1,17 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-sm-9 border">
 
-<div class="details_div">
-  <h1>{{ebook.title}}</h1>
-  <img [src]="ebook.imageUrl" alt="image not found">
+      <h1>{{ebook.title}}</h1>
+      <img [src]="ebook.imageUrl" alt="image not found">
+      <ul>
+        <li>Author: <span [innerHTML]="ebook.author"></span></li>
+        <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
+        <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
+        <li>Language: <span [innerHTML]="ebook.language"></span></li>
+        <li>Format: <span [innerHTML]="ebook.format"></span></li>
+      </ul>
 
+    </div>
+  </div>
 </div>
