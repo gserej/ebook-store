@@ -2,33 +2,32 @@
   <div class="row mt-4">
     <div class="col-sm-9">
       <div class="card-deck">
-        <div class="row row-cols-1 row-cols-sm-3">
-          <div *ngFor="let ebook of ebooks" class="col mb-4">
-            <div class="card">
-              <div class="row no-gutters">
-                <div class="col-sm-4">
-                  <img [src]="ebook.imageUrl" alt="..." class="card-img-top">
-                </div>
-                <div class="col-sm-8">
-                  <div class="card-body " style="min-width: 350px;">
-                    <h5 class="card-title">{{ebook.title}}</h5>
-                    <ul>
-                      <li>Author: <span [innerHTML]="ebook.author"></span></li>
-                      <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
-                      <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
-                      <li>Language: <span [innerHTML]="ebook.language"></span></li>
-                      <li>Format: <span [innerHTML]="ebook.format"></span></li>
-                    </ul>
-                    <button class="btn btn-primary" routerLink="/{{ebook.id}}" type="button">Read more</button>
-                    <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/update/{{ebook.id}}"
-                            type="button">
-                      Edit
-                    </button>
-                    <button (click)="deleteEbook(ebook.id)" *ngIf="loggedAsAdmin" class="btn btn-danger" type="button">
-                      Delete
-                    </button>
-                  </div>
-                </div>
+        <div *ngFor="let ebook of ebooks" class="card bg-light mb-3" style="min-width: 22rem;">
+          <div class="card-header">
+            <h5 class="card-title">{{ebook.title}}</h5>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-sm-4">
+              <img [src]="ebook.imageUrl" alt="..." class="card-img-top m-2 border">
+            </div>
+            <div class="col-sm-8">
+              <div class="card-body">
+                <ul>
+                  <li>Author: <span [innerHTML]="ebook.author"></span></li>
+                  <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
+                  <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
+                  <li>Language: <span [innerHTML]="ebook.language"></span></li>
+                  <li>Format: <span [innerHTML]="ebook.format"></span></li>
+                  <li>ISBN: <span [innerHTML]="ebook.isbn"></span></li>
+                </ul>
+                <button class="btn btn-primary" routerLink="/{{ebook.id}}" type="button">Read more</button>
+                <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/update/{{ebook.id}}"
+                        type="button">
+                  Edit
+                </button>
+                <button (click)="deleteEbook(ebook.id)" *ngIf="loggedAsAdmin" class="btn btn-danger" type="button">
+                  Delete
+                </button>
               </div>
             </div>
           </div>

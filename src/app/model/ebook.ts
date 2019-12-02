@@ -1,7 +1,6 @@
 export class Ebook {
   id: number;
   title = '';
-  key = '';
   date: Date = new Date();
   description = '';
   imageUrl = '';
@@ -10,4 +9,5 @@ export class Ebook {
   pages: number;
   language = '';
   format = '';
+  isbn = '';
 }
