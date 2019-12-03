@@ -1,15 +1,11 @@
+
 <h4 class="mb-3">
   <span class="text-muted">Categories</span>
 </h4>
-
-<div class="search-bar">
-  <input [(ngModel)]="searchText" placeholder="Search..." type="text">
-</div>
-
 <ul class="list-group mb-3">
-  <li *ngFor="let category of categories | grdFilter: {name: searchText}; let i=index;" class="list-group-item">
+  <li *ngFor="let category of categories" class="list-group-item">
     <div>
-      <h6>{{category.toString()}}</h6>
+      <a routerLink="/category/{{category.name}}">{{category.name}}</a>
     </div>
   </li>
 </ul>

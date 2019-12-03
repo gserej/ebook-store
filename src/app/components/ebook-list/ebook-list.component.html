@@ -20,7 +20,7 @@
                   <li>Format: <span [innerHTML]="ebook.format"></span></li>
                   <li>ISBN: <span [innerHTML]="ebook.isbn"></span></li>
                 </ul>
-                <button class="btn btn-primary" routerLink="/{{ebook.id}}" type="button">Read more</button>
+                <button class="btn btn-primary" routerLink="/ebooks/{{ebook.id}}" type="button">Read more</button>
                 <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/update/{{ebook.id}}"
                         type="button">
                   Edit
@@ -40,6 +40,7 @@
 
 
     <div class="col-sm-3">
+      <app-search-box></app-search-box>
       <app-category-list></app-category-list>
     </div>
   </div>
