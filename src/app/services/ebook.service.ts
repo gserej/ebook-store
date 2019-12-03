@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Ebook} from '../model/ebook';
 import {HttpClient} from '@angular/common/http';
-import {ApiResponse} from '../model/api.response';
 import {Category} from '../model/category';
 
 @Injectable({
@@ -31,8 +30,8 @@ export class EbookService {
     return this.http.post(this.baseUrl, ebook);
   }
 
-  updateEbook(ebook: Ebook): Observable<ApiResponse> {
-    return this.http.put<ApiResponse>(this.baseUrl + '/' + ebook.id, ebook);
+  updateEbook(ebook: Ebook): Observable<any> {
+    return this.http.put(this.baseUrl + '/' + ebook.id, ebook);
   }
 
   deleteEbook(id: number): Observable<any> {

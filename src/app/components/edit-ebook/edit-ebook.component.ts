@@ -26,8 +26,7 @@ export class EditEbookComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       id: [],
       title: ['', Validators.required],
-      key: ['', Validators.required],
-      date: ['', Validators.required],
+      dateAdded: [],
       description: ['', Validators.required],
       imageUrl: ['', Validators.required],
       author: ['', Validators.required],
@@ -35,6 +34,8 @@ export class EditEbookComponent implements OnInit {
       pages: ['', Validators.required],
       language: ['', Validators.required],
       format: ['', Validators.required],
+      isbn: ['', Validators.required],
+      categories: [],
     });
 
     this.ebookService.getEbookById(this.ebookId)
@@ -46,18 +47,8 @@ export class EditEbookComponent implements OnInit {
   onSubmit() {
     this.ebookService.updateEbook(this.editForm.value)
       .pipe(first())
-      .subscribe(
-        data => {
-          if (data.status === 200) {
-            alert('User updated successfully.');
-            this.router.navigate(['ebooks']);
-          } else {
-            alert(data.message);
-          }
-        },
-        error => {
-          alert(error);
-        });
+      .subscribe(() => {
+        this.router.navigate(['ebooks']);
+      });
   }
-
 }

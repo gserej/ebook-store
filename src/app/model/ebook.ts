@@ -1,7 +1,7 @@
 export class Ebook {
   id: number;
   title = '';
-  date: Date = new Date();
+  dateAdded: Date = new Date();
   description = '';
   imageUrl = '';
   author = '';

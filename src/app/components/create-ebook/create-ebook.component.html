@@ -27,32 +27,37 @@
             <input class="form-control" formControlName="pages" id="pages" name="pages" placeholder="Pages"
                    type="number">
           </div>
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-3">
             <label for="year">Publication Year</label>
             <input class="form-control" formControlName="pages" id="year" name="pages" placeholder="Publication Year"
                    type="number">
           </div>
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-3">
             <label for="language">Language:</label>
             <input class="form-control" formControlName="language" id="language" name="language" placeholder="Language"
                    type="text">
           </div>
         </div>
-        <div class="form-group col-md-4">
-          <h6>Publication Year</h6>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" formControlName="format" id="inlineRadio1" type="radio" value="pdf">
-            <label class="form-check-label" for="inlineRadio1">PDF</label>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-md-2 pt-0">Format</legend>
+            <div class="col-md-10">
+              <div class="form-check">
+                <input checked class="form-check-input" formControlName="format" id="inlineRadio1" type="radio"
+                       value="pdf">
+                <label class="form-check-label" for="inlineRadio1">PDF</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" formControlName="format" id="inlineRadio2" type="radio" value="epub">
+                <label class="form-check-label" for="inlineRadio2">epub</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" formControlName="format" id="inlineRadio3" type="radio" value="mobi">
+                <label class="form-check-label" for="inlineRadio3">mobi</label>
+              </div>
+            </div>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" formControlName="format" id="inlineRadio2" type="radio" value="epub">
-            <label class="form-check-label" for="inlineRadio2">epub</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" formControlName="format" id="inlineRadio3" type="radio" value="mobi">
-            <label class="form-check-label" for="inlineRadio3">mobi</label>
-          </div>
-        </div>
+        </fieldset>
         <br/>
         <button class="btn btn-success">Add</button>
       </form>
