@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '404', component: NotFoundComponent},
   {path: '', component: EbookListComponent},
-  {path: ':id', component: EbookDetailsComponent},
+  {path: 'ebooks/:id', component: EbookDetailsComponent},
   {path: 'update/:id', component: EditEbookComponent},
   {path: '**', component: NotFoundComponent},
 ];
