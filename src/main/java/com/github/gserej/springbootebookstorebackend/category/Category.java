@@ -21,6 +21,7 @@ public class Category {
     @NonNull
     @Column(name = "name")
     private String name;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "ebook_category",

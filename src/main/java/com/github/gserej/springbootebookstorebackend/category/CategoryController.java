@@ -12,15 +12,16 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 class CategoryController {
 
-    private CategoryRepository repository;
+    private CategoryService categoryService;
 
-    public CategoryController(CategoryRepository repository) {
-        this.repository = repository;
+    CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
+
     @GetMapping("/categories")
-    public List<Category> getAllEbooks() {
-        return repository.findAll();
+    public List<CategoryDto> getAllCategories() {
+        return categoryService.getAllCategories();
     }
 
 
