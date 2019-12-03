@@ -9,18 +9,10 @@ import org.springframework.stereotype.Component;
 public class EbookBootstrap {
 
     @Bean
-    ApplicationRunner init(EbookRepository ebookRepository) {
+    ApplicationRunner ebookInit(EbookRepository ebookRepository) {
         return args -> {
 
-//            Category category1 = new Category("Java");
-//            Category category2 = new Category("Android");
-//            Category category3 = new Category("iOS");
-//
-//            categoryRepository.save(category1);
-//            categoryRepository.save(category2);
-//            categoryRepository.save(category3);
-//
-//
+
 //            Set<Category> categorySet1 = new HashSet<>();
 //            categorySet1.add(category1);
 //            categorySet1.add(category2);

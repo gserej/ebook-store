@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -25,18 +26,23 @@ class EbookController {
         return ebookService.getAllEbooks();
     }
 
+    @GetMapping("/category/{id}")
+    public List<EbookDto> getAllEbooks(@PathVariable(value = "id") Long categoryId) {
+        return ebookService.getEbooksByCategory(categoryId);
+    }
+
     @GetMapping("/ebooks/{id}")
     public EbookDto getEbookById(@PathVariable(value = "id") Long ebookId) throws EbookNotFoundException {
         return ebookService.getEbookById(ebookId);
     }
 
-//
+
 //    @PreAuthorize("hasAuthority('MODERATOR')")
-//    @PostMapping("/ebooks")
-//    public Ebook createEbook(@Valid @RequestBody Ebook ebook) {
-//        return ebookService.createEbook(ebook);
-//    }
-//
+@PostMapping("/ebooks")
+public EbookDto createEbook(@Valid @RequestBody Ebook ebook) {
+    return ebookService.createEbook(ebook);
+}
+
 //    @PreAuthorize("hasAuthority('MODERATOR')")
 //    @PutMapping("/ebooks/{id}")
 //    public ResponseEntity<Ebook> updateEbook(@PathVariable(value = "id") Long ebookId,
@@ -61,15 +67,10 @@ class EbookController {
 //    }
 //
 //    @PreAuthorize("hasAuthority('MODERATOR')")
-//    @DeleteMapping("/ebooks/{id}")
-//    public Map<String, Boolean> deleteEbook(@PathVariable(value = "id") Long ebookId)
-//            throws ResourceNotFoundException {
-//        Ebook ebook = ebookService.findById(ebookId)
-//                .orElseThrow(() -> new ResourceNotFoundException("Ebook not found for this id : " + ebookId));
-//
-//        ebookService.delete(ebook);
-//        Map<String, Boolean> response = new HashMap<>();
-//        response.put("deleted", Boolean.TRUE);
-//        return response;
-//    }
+
+    @DeleteMapping("/ebooks/{id}")
+    public void deleteEbook(@PathVariable(value = "id") Long ebookId) throws EbookNotFoundException {
+        ebookService.deleteEbook(ebookId);
+
+    }
 }

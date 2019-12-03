@@ -27,11 +27,28 @@ public class EbookService {
 
     }
 
-    public EbookDto getEbookById(Long id) throws EbookNotFoundException {
-        Ebook ebook = ebookRepository.findById(id).orElseThrow(EbookNotFoundException::new);
+    public List<EbookDto> getEbooksByCategory(Long id) {
+        return ebookRepository.getEbookByCategoriesIs(id)
+                .stream()
+                .map(ebookMapper::toEbookDto)
+                .collect(Collectors.toList());
+    }
+
+    public EbookDto getEbookById(Long ebookId) throws EbookNotFoundException {
+        Ebook ebook = ebookRepository.findById(ebookId).orElseThrow(EbookNotFoundException::new);
 
         return ebookMapper.toEbookDto(ebook);
     }
 
+    public void deleteEbook(Long ebookId) throws EbookNotFoundException {
+        Ebook ebook = ebookRepository.findById(ebookId).orElseThrow(EbookNotFoundException::new);
+        ebookRepository.delete(ebook);
+
+    }
+
+    public EbookDto createEbook(Ebook ebook) {
+        ebookRepository.save(ebook);
+        return ebookMapper.toEbookDto(ebook);
+    }
 
 }
