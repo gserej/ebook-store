@@ -18,12 +18,10 @@ class CategoryController {
         this.categoryService = categoryService;
     }
 
-
     @GetMapping("/categories")
     public List<CategoryDto> getAllCategories() {
         return categoryService.getAllCategories();
     }
-
 
 }
 

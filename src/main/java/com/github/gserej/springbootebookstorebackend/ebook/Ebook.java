@@ -24,10 +24,6 @@ public class Ebook {
     @Column(name = "title")
     private String title;
 
-
-    @Column(name = "dateAdded")
-    private LocalDateTime dateAdded;
-
     @Column(name = "description")
     private String description;
 
@@ -51,6 +47,9 @@ public class Ebook {
 
     @Enumerated(EnumType.STRING)
     private Format format;
+
+    @Column(name = "dateAdded")
+    private LocalDateTime dateAdded;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(

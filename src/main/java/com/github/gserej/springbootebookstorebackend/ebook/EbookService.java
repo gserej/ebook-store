@@ -51,4 +51,14 @@ public class EbookService {
         return ebookMapper.toEbookDto(ebook);
     }
 
+    public EbookDto updateEbook(Long ebookId, Ebook ebook) throws EbookNotFoundException {
+        Ebook retrievedEbook = ebookRepository.findById(ebookId).orElseThrow(EbookNotFoundException::new);
+        retrievedEbook.setAuthor(ebook.getAuthor());
+        retrievedEbook.setTitle(ebook.getTitle());
+        retrievedEbook.setFormat(ebook.getFormat());
+
+        ebookRepository.save(retrievedEbook);
+        return ebookMapper.toEbookDto(retrievedEbook);
+    }
+
 }

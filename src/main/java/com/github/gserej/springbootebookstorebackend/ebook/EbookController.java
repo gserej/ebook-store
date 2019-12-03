@@ -44,28 +44,12 @@ public EbookDto createEbook(@Valid @RequestBody Ebook ebook) {
 }
 
 //    @PreAuthorize("hasAuthority('MODERATOR')")
-//    @PutMapping("/ebooks/{id}")
-//    public ResponseEntity<Ebook> updateEbook(@PathVariable(value = "id") Long ebookId,
-//                                             @Valid @RequestBody Ebook ebookDetails) throws ResourceNotFoundException {
-//        Ebook ebook = ebookService.findById(ebookId)
-//                .orElseThrow(() -> new ResourceNotFoundException("Ebook not found for this id : " + ebookId));
-//
-//        ebook.setTitle(ebookDetails.getTitle());
-//        ebook.setAuthor(ebookDetails.getAuthor());
-//        ebook.setPages(ebookDetails.getPages());
-//        ebook.setDescription(ebookDetails.getDescription());
-//        ebook.setLanguage(ebookDetails.getLanguage());
-//        ebook.setImageUrl(ebookDetails.getImageUrl());
-//        ebook.setPublicationYear(ebookDetails.getPublicationYear());
-//        ebook.setCreationDate(ebookDetails.getCreationDate());
-//        ebook.setFormat(ebookDetails.getFormat());
-//        ebook.setKey(ebookDetails.getKey());
-//
-//
-//        final Ebook updatedEbook = repository.save(ebook);
-//        return ResponseEntity.ok(updatedEbook);
-//    }
-//
+@PutMapping("/ebooks/{id}")
+public EbookDto updateEbook(@PathVariable(value = "id") Long ebookId,
+                            @Valid @RequestBody Ebook ebookDetails) throws EbookNotFoundException {
+    return ebookService.updateEbook(ebookId, ebookDetails);
+}
+
 //    @PreAuthorize("hasAuthority('MODERATOR')")
 
     @DeleteMapping("/ebooks/{id}")
