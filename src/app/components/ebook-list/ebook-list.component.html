@@ -21,7 +21,7 @@
                   <li>ISBN: <span [innerHTML]="ebook.isbn"></span></li>
                 </ul>
                 <button class="btn btn-primary" routerLink="/ebooks/{{ebook.id}}" type="button">Read more</button>
-                <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/update/{{ebook.id}}"
+                <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/ebooks/update/{{ebook.id}}"
                         type="button">
                   Edit
                 </button>
@@ -40,8 +40,10 @@
 
 
     <div class="col-sm-3">
-      <app-search-box></app-search-box>
-      <app-category-list></app-category-list>
+      <div class="bg bg-light border">
+        <!--        <app-search-box></app-search-box>-->
+        <app-category-list></app-category-list>
+      </div>
     </div>
   </div>
 </div>

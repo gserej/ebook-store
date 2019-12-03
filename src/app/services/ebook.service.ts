@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {Ebook} from '../model/ebook';
 import {HttpClient} from '@angular/common/http';
 import {ApiResponse} from '../model/api.response';
+import {Category} from '../model/category';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class EbookService {
   }
 
   getEbooks(): Observable<any> {
+    return this.http.get(this.baseUrl);
+  }
+
+  getEbooksByCategory(id: Category): Observable<any> {
     return this.http.get(this.baseUrl);
   }
 

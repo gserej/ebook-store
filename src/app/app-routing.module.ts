@@ -12,12 +12,12 @@ import {LoginComponent} from './components/login/login.component';
 const routes: Routes = [
   {path: 'ebooks', component: EbookListComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'create-ebook', component: CreateEbookComponent},
+  {path: 'ebooks/create', component: CreateEbookComponent},
   {path: 'login', component: LoginComponent},
   {path: '404', component: NotFoundComponent},
   {path: '', component: EbookListComponent},
   {path: 'ebooks/:id', component: EbookDetailsComponent},
-  {path: 'update/:id', component: EditEbookComponent},
+  {path: 'ebooks/update/:id', component: EditEbookComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

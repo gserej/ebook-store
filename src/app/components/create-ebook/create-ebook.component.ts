@@ -32,12 +32,12 @@ export class CreateEbookComponent implements OnInit {
       pages: ['', Validators.required],
       language: ['', Validators.required],
       format: ['', Validators.required],
+      isbn: ['', Validators.required],
     });
 
   }
 
   onSubmit() {
-    console.log(this.addForm.value);
     this.ebookService.createEbook(this.addForm.value)
       .subscribe(() => {
         this.router.navigate(['ebooks']);
