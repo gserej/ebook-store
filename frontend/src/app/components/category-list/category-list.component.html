@@ -1,0 +1,11 @@
+
+<h4 class="mb-3">
+  <span class="text-muted">Categories</span>
+</h4>
+<ul class="list-group mb-3">
+  <li *ngFor="let category of categories" class="list-group-item">
+    <div>
+      <a routerLink="/category/{{category.name}}">{{category.name}}</a>
+    </div>
+  </li>
+</ul>
