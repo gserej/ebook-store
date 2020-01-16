@@ -12,32 +12,27 @@
   <build>
     <plugins>
       <plugin>
-          <groupId>com.github.eirslett</groupId>
-          <artifactId>frontend-maven-plugin</artifactId>
-          <version>1.9.0</version>
-
-          <configuration>
-              <nodeVersion>v13.1.0</nodeVersion>
-              <npmVersion>6.13.4</npmVersion>
-              <workingDirectory>src/main/web/</workingDirectory>
-          </configuration>
-
-          <executions>
-              <execution>
-                  <id>install node and npm</id>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.9.0</version>
+        <configuration>
+          <nodeVersion>v13.1.0</nodeVersion>
+        </configuration>
+        <executions>
+          <execution>
+            <id>install node and npm</id>
             <goals>
               <goal>install-node-and-npm</goal>
             </goals>
           </execution>
-
-              <execution>
+          <execution>
             <id>npm install</id>
             <goals>
               <goal>npm</goal>
             </goals>
           </execution>
 
-              <execution>
+          <execution>
             <id>npm run build</id>
             <goals>
               <goal>npm</goal>
@@ -46,8 +41,7 @@
               <arguments>run build</arguments>
             </configuration>
           </execution>
-
-          </executions>
+        </executions>
       </plugin>
     </plugins>
   </build>
