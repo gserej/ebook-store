@@ -46,7 +46,7 @@ public class Ebook {
     private String isbn;
 
     @Enumerated(EnumType.STRING)
-    private Format format;
+    private EbookFormat ebookFormat;
 
     @Column(name = "dateAdded")
     private LocalDateTime dateAdded;

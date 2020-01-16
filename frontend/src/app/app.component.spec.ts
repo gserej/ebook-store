@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular8-ebook-store'`, () => {
+  it(`should have as title 'ebook-store'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular8-ebook-store');
+    expect(app.title).toEqual('ebook-store');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular8-ebook-store app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ebook-store app is running!');
   });
 });

@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {Ebook} from '../../model/ebook';
-import {EbookService} from '../../services/ebook.service';
-import {AuthService} from '../../services/auth.service';
+import {Ebook} from './ebook';
+import {EbookService} from './ebook.service';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
-  selector: 'app-ebook-list',
-  templateUrl: './ebook-list.component.html',
-  styleUrls: ['./ebook-list.component.css']
+  selector: 'app-ebooks',
+  templateUrl: './ebooks.component.html',
+  styleUrls: ['./ebooks.component.css']
 })
-export class EbookListComponent implements OnInit {
+export class EbooksComponent implements OnInit {
   ebooks: Array<Ebook>;
   loggedAsAdmin = false;
 

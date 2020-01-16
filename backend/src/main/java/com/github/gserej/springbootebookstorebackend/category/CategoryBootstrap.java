@@ -2,10 +2,12 @@ package com.github.gserej.springbootebookstorebackend.category;
 
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+@Profile("demo")
 @Component
-public class CategoryBootsrap {
+public class CategoryBootstrap {
 
     @Bean
     ApplicationRunner categoryInit(CategoryRepository categoryRepository) {

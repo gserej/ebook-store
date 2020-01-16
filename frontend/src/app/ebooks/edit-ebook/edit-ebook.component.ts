@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Ebook} from '../../model/ebook';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {EbookService} from '../../services/ebook.service';
 import {first} from 'rxjs/operators';
+import {Ebook} from "../ebook";
+import {EbookService} from "../ebook.service";
 
 @Component({
   selector: 'app-edit-ebook',
@@ -16,7 +16,8 @@ export class EditEbookComponent implements OnInit {
   editForm: FormGroup;
   ebookId: number;
 
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, private ebookService: EbookService) {
+  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder,
+              private router: Router, private ebookService: EbookService) {
   }
 
   ngOnInit() {

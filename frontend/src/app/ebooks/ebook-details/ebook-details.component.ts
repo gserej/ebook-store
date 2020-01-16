@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Ebook} from '../../model/ebook';
+
 import {ActivatedRoute, Router} from '@angular/router';
-import {EbookService} from '../../services/ebook.service';
+
 import {Meta} from '@angular/platform-browser';
+import {Ebook} from '../ebook';
+import {EbookService} from '../ebook.service';
 
 
 @Component({

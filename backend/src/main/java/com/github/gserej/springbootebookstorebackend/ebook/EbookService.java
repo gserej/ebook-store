@@ -55,7 +55,7 @@ public class EbookService {
         Ebook retrievedEbook = ebookRepository.findById(ebookId).orElseThrow(EbookNotFoundException::new);
         retrievedEbook.setAuthor(ebook.getAuthor());
         retrievedEbook.setTitle(ebook.getTitle());
-        retrievedEbook.setFormat(ebook.getFormat());
+        retrievedEbook.setEbookFormat(ebook.getEbookFormat());
 
         ebookRepository.save(retrievedEbook);
         return ebookMapper.toEbookDto(retrievedEbook);

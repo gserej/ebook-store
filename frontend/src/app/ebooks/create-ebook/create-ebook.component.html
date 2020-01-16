@@ -1,9 +1,9 @@
 <div class="container mt-4">
   <div class="col-12"></div>
-  <h1>Edit Ebook</h1>
+  <h1>Add Ebook</h1>
   <div class="card">
     <div class="card-body">
-      <form (ngSubmit)="onSubmit()" [formGroup]="editForm">
+      <form (ngSubmit)="onSubmit()" [formGroup]="addForm">
         <div class="form-group">
           <label for="title">Title:</label>
           <input class="form-control" formControlName="title" id="title" name="username" placeholder="Title"
@@ -43,23 +43,25 @@
             <legend class="col-form-label col-md-2 pt-0">Format</legend>
             <div class="col-md-10">
               <div class="form-check">
-                <input checked class="form-check-input" formControlName="format" id="inlineRadio1" type="radio"
+                <input checked class="form-check-input" formControlName="ebookFormat" id="inlineRadio1" type="radio"
                        value="pdf">
                 <label class="form-check-label" for="inlineRadio1">PDF</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" formControlName="format" id="inlineRadio2" type="radio" value="epub">
+                <input class="form-check-input" formControlName="ebookFormat" id="inlineRadio2" type="radio"
+                       value="epub">
                 <label class="form-check-label" for="inlineRadio2">epub</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" formControlName="format" id="inlineRadio3" type="radio" value="mobi">
+                <input class="form-check-input" formControlName="ebookFormat" id="inlineRadio3" type="radio"
+                       value="mobi">
                 <label class="form-check-label" for="inlineRadio3">mobi</label>
               </div>
             </div>
           </div>
         </fieldset>
         <br/>
-        <button class="btn btn-success">Edit</button>
+        <button class="btn btn-success">Add</button>
       </form>
     </div>
   </div>

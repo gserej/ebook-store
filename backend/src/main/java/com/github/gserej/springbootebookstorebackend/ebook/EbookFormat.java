@@ -1,7 +1,7 @@
 package com.github.gserej.springbootebookstorebackend.ebook;
 
 
-public enum Format {
+public enum EbookFormat {
     pdf,
     epub,
     mobi,

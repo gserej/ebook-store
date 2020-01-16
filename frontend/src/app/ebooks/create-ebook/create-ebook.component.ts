@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Ebook} from '../../model/ebook';
-import {EbookService} from '../../services/ebook.service';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Ebook} from '../ebook';
+import {EbookService} from '../ebook.service';
 
 @Component({
   selector: 'app-create-ebook',

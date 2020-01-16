@@ -1,21 +1,21 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {EbookListComponent} from './components/ebook-list/ebook-list.component';
-import {AboutComponent} from './components/about/about.component';
-import {EbookDetailsComponent} from './components/ebook-details/ebook-details.component';
-import {NotFoundComponent} from './components/not-found/not-found.component';
-import {CreateEbookComponent} from './components/create-ebook/create-ebook.component';
-import {EditEbookComponent} from './components/edit-ebook/edit-ebook.component';
-import {LoginComponent} from './components/login/login.component';
+import {AboutComponent} from './shared/about/about.component';
+import {LoginComponent} from './shared/login/login.component';
+import {NotFoundComponent} from './shared/not-found/not-found.component';
+import {EditEbookComponent} from './ebooks/edit-ebook/edit-ebook.component';
+import {CreateEbookComponent} from './ebooks/create-ebook/create-ebook.component';
+import {EbooksComponent} from './ebooks/ebooks.component';
+import {EbookDetailsComponent} from './ebooks/ebook-details/ebook-details.component';
 
 
 const routes: Routes = [
-  {path: 'ebooks', component: EbookListComponent},
+  {path: 'ebooks', component: EbooksComponent},
   {path: 'about', component: AboutComponent},
   {path: 'ebooks/create', component: CreateEbookComponent},
   {path: 'login', component: LoginComponent},
   {path: '404', component: NotFoundComponent},
-  {path: '', component: EbookListComponent},
+  {path: '', component: EbooksComponent},
   {path: 'ebooks/:id', component: EbookDetailsComponent},
   {path: 'ebooks/update/:id', component: EditEbookComponent},
   {path: '**', component: NotFoundComponent},

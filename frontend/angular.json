@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular8-ebook-store": {
+    "ebook-store": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular8-ebook-store",
+            "outputPath": "dist/ebook-store",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular8-ebook-store:build"
+            "browserTarget": "ebook-store:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular8-ebook-store:build:production"
+              "browserTarget": "ebook-store:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular8-ebook-store:build"
+            "browserTarget": "ebook-store:build"
           }
         },
         "test": {
@@ -114,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular8-ebook-store:serve"
+            "devServerTarget": "ebook-store:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular8-ebook-store:serve:production"
+              "devServerTarget": "ebook-store:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angular8-ebook-store"
+  "defaultProject": "ebook-store"
 }

@@ -7,17 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "categories")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @NonNull
     @Column(name = "name")
     private String name;
@@ -28,7 +31,7 @@ public class Category {
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "ebook_id")
     )
-    private Set<Ebook> ebook;
+    private Set<Ebook> ebook = new HashSet<>();
 
     public Category(String name) {
         this.name = name;

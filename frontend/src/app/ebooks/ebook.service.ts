@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Ebook} from '../model/ebook';
+
 import {HttpClient} from '@angular/common/http';
-import {Category} from '../model/category';
+import {Category} from '../categories/category';
+import {Ebook} from './ebook';
+
 
 @Injectable({
   providedIn: 'root'

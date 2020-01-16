@@ -1,2 +1,2 @@
-# ebook-store
-Spring Boot and Angular 8 CRUD Ebook store app 
+# Ebook Store
+Spring Boot 2.2 and Angular 8 based CRUD Ebook store app.

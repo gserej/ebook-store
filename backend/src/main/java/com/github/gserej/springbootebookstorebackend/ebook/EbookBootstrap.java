@@ -26,11 +26,11 @@ public class EbookBootstrap {
 
             ebook = new Ebook();
             ebook.setTitle("Think Java: How to Think Like a Computer Scientist, 2nd Edition");
-            ebook.setAuthor("John Cena");
-            ebook.setPages(600);
-            ebook.setPublicationYear(2020);
+            ebook.setAuthor("Julian Tuwim");
+            ebook.setPages(200);
+            ebook.setPublicationYear(1925);
             ebook.setImageUrl("https://scanlibs.com/wp-content/cover/data-mining-business-analytics-concepts-techniques.jpg");
-            ebook.setLanguage("English");
+            ebook.setLanguage("Polish");
 //            ebook.setCategories(categorySet1);
             ebookRepository.save(ebook);
 

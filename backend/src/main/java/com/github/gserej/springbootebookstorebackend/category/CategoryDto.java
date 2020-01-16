@@ -1,6 +1,5 @@
 package com.github.gserej.springbootebookstorebackend.category;
 
-
 import lombok.Data;
 
 @Data

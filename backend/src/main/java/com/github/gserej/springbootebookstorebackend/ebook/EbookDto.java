@@ -20,7 +20,7 @@ public class EbookDto {
     private String language;
     private String isbn;
 
-    private Format format;
+    private EbookFormat ebookFormat;
 
     private Set<Category> categories;
 }

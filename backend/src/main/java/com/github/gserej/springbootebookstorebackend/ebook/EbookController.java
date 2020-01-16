@@ -27,7 +27,7 @@ class EbookController {
     }
 
     @GetMapping("/category/{id}")
-    public List<EbookDto> getAllEbooks(@PathVariable(value = "id") Long categoryId) {
+    public List<EbookDto> getEbooksByCategory(@PathVariable(value = "id") Long categoryId) {
         return ebookService.getEbooksByCategory(categoryId);
     }
 
@@ -37,18 +37,18 @@ class EbookController {
     }
 
 
-//    @PreAuthorize("hasAuthority('MODERATOR')")
-@PostMapping("/ebooks")
-public EbookDto createEbook(@Valid @RequestBody Ebook ebook) {
-    return ebookService.createEbook(ebook);
-}
+    //    @PreAuthorize("hasAuthority('MODERATOR')")
+    @PostMapping("/ebooks")
+    public EbookDto createEbook(@Valid @RequestBody Ebook ebook) {
+        return ebookService.createEbook(ebook);
+    }
 
-//    @PreAuthorize("hasAuthority('MODERATOR')")
-@PutMapping("/ebooks/{id}")
-public EbookDto updateEbook(@PathVariable(value = "id") Long ebookId,
-                            @Valid @RequestBody Ebook ebookDetails) throws EbookNotFoundException {
-    return ebookService.updateEbook(ebookId, ebookDetails);
-}
+    //    @PreAuthorize("hasAuthority('MODERATOR')")
+    @PutMapping("/ebooks/{id}")
+    public EbookDto updateEbook(@PathVariable(value = "id") Long ebookId,
+                                @Valid @RequestBody Ebook ebookDetails) throws EbookNotFoundException {
+        return ebookService.updateEbook(ebookId, ebookDetails);
+    }
 
 //    @PreAuthorize("hasAuthority('MODERATOR')")
 
