@@ -18,7 +18,7 @@ public class CategoryService {
     }
 
     public List<CategoryDto> getAllCategories() {
-        return categoryRepository.findAll()
+        return categoryRepository.findByOrderByShortName()
                 .stream()
                 .map(categoryMapper::toCategoryDto)
                 .collect(Collectors.toList());

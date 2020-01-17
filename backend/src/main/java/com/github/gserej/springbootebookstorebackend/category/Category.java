@@ -22,8 +22,12 @@ public class Category {
     private Long id;
 
     @NonNull
-    @Column(name = "name")
-    private String name;
+    @Column(name = "fullname")
+    private String fullName;
+
+    @NonNull
+    @Column(name = "shortname")
+    private String shortName;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -33,8 +37,9 @@ public class Category {
     )
     private Set<Ebook> ebook = new HashSet<>();
 
-    public Category(String name) {
-        this.name = name;
+    public Category(String fullName, String shortName) {
+        this.fullName = fullName;
+        this.shortName = shortName;
     }
 
 }
