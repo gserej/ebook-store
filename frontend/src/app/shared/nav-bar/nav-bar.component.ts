@@ -10,6 +10,7 @@ import {AuthService} from '../../services/auth.service';
 export class NavBarComponent implements OnInit {
 
   isLoggedIn = false;
+  navbarOpen = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,11 +22,13 @@ export class NavBarComponent implements OnInit {
     this.isLoggedIn = this.authService.isUserLoggedIn();
   }
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
   handleLogout() {
     this.authService.logout();
     this.ngOnInit();
     this.router.navigateByUrl('/');
   }
-
-
 }
