@@ -10,6 +10,7 @@ import java.util.Set;
 public class EbookDto {
 
     private Long id;
+    private String shortName;
     private String title;
     private LocalDateTime dateAdded;
     private String description;

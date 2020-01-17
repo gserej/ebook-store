@@ -1,7 +1,7 @@
 package com.github.gserej.springbootebookstorebackend.user;
 
 
-import com.github.gserej.springbootebookstorebackend.model.Authority;
+import com.github.gserej.springbootebookstorebackend.auth.Authority;
 import lombok.Data;
 
 import java.sql.Date;

@@ -1,6 +1,9 @@
 package com.github.gserej.springbootebookstorebackend.ebook;
 
 
+import com.github.gserej.springbootebookstorebackend.category.Category;
+import com.github.gserej.springbootebookstorebackend.category.CategoryNotFoundException;
+import com.github.gserej.springbootebookstorebackend.category.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,11 +14,13 @@ import java.util.stream.Collectors;
 public class EbookService {
 
     private final EbookRepository ebookRepository;
+    private final CategoryRepository categoryRepository;
     private final EbookMapper ebookMapper;
 
 
-    public EbookService(EbookRepository ebookRepository, EbookMapper ebookMapper) {
+    public EbookService(EbookRepository ebookRepository, CategoryRepository categoryRepository, EbookMapper ebookMapper) {
         this.ebookRepository = ebookRepository;
+        this.categoryRepository = categoryRepository;
         this.ebookMapper = ebookMapper;
     }
 
@@ -27,16 +32,22 @@ public class EbookService {
 
     }
 
-    public List<EbookDto> getEbooksByCategory(Long id) {
-        return ebookRepository.getEbookByCategoriesIs(id)
+    public List<EbookDto> getEbooksByCategory(String categoryShortName) throws CategoryNotFoundException {
+        Category category = categoryRepository.findByShortName(categoryShortName).orElseThrow(CategoryNotFoundException::new);
+        return ebookRepository.findAllByCategories(category)
                 .stream()
                 .map(ebookMapper::toEbookDto)
                 .collect(Collectors.toList());
     }
 
+    public EbookDto getEbookByShortName(String ebookShortName) throws EbookNotFoundException {
+        Ebook ebook = ebookRepository.findFirstByShortName(ebookShortName).orElseThrow(EbookNotFoundException::new);
+
+        return ebookMapper.toEbookDto(ebook);
+    }
+
     public EbookDto getEbookById(Long ebookId) throws EbookNotFoundException {
         Ebook ebook = ebookRepository.findById(ebookId).orElseThrow(EbookNotFoundException::new);
-
         return ebookMapper.toEbookDto(ebook);
     }
 

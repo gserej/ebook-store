@@ -10,4 +10,5 @@ export class Ebook {
   language = '';
   format = '';
   isbn = '';
+  shortName = '';
 }

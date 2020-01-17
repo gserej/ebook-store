@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Ebook} from './ebook';
 import {EbookService} from './ebook.service';
 import {AuthService} from '../services/auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -16,16 +17,27 @@ export class EbooksComponent implements OnInit {
   page = 1;
 
   constructor(private ebookService: EbookService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.getEbooks();
+    this.route.params.subscribe(params => {
+      const categoryName = params.id;
+      if (categoryName == null) {
+        this.getAllEbooks();
+      } else {
+        this.ebookService.getEbooksByCategory(categoryName).subscribe(ebooks => {
+          this.ebooks = ebooks;
+        });
+      }
+    });
     this.loggedAsAdmin = this.authService.isUserLoggedIn();
   }
 
-  getEbooks(): void {
-    this.ebookService.getEbooks()
+  getAllEbooks(): void {
+    this.ebookService.getAllEbooks()
       .subscribe(data => {
         this.ebooks = data;
       });
@@ -35,9 +47,9 @@ export class EbooksComponent implements OnInit {
     this.ebookService.deleteEbook(id)
       .subscribe(
         () => {
-          this.getEbooks();
+          this.ngOnInit();
         },
         error => console.log(error));
-    this.getEbooks();
+    this.ngOnInit();
   }
 }

@@ -24,8 +24,8 @@ export class EbookDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const id = params.id;
-      this.ebookService.getEbookById(id).subscribe(ebook => {
+      const shortName = params.id;
+      this.ebookService.getEbookByShortName(shortName).subscribe(ebook => {
         if (ebook === undefined) {
           this.router.navigate(['404']);
           return;

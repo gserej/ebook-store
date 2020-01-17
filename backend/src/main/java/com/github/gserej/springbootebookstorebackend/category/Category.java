@@ -1,6 +1,7 @@
 package com.github.gserej.springbootebookstorebackend.category;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.github.gserej.springbootebookstorebackend.ebook.Ebook;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "categories")
+@Table(name = "category")
 public class Category {
 
     @Id
@@ -29,13 +30,9 @@ public class Category {
     @Column(name = "shortname")
     private String shortName;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "ebook_category",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "ebook_id")
-    )
-    private Set<Ebook> ebook = new HashSet<>();
+    @JsonBackReference
+    @ManyToMany(mappedBy = "categories")
+    private Set<Ebook> ebooks = new HashSet<>();
 
     public Category(String fullName, String shortName) {
         this.fullName = fullName;

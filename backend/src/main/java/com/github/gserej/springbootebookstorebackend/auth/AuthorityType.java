@@ -1,4 +1,4 @@
-package com.github.gserej.springbootebookstorebackend.model;
+package com.github.gserej.springbootebookstorebackend.auth;
 
 public enum AuthorityType {
 

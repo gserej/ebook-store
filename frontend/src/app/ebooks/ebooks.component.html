@@ -15,18 +15,20 @@
                 <ul>
                   <li>Author: <span [innerHTML]="ebook.author"></span></li>
                   <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
+                  <li>ISBN: <span [innerHTML]="ebook.isbn"></span></li>
                   <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
                   <li>Language: <span [innerHTML]="ebook.language"></span></li>
                   <li>Format: <span [innerHTML]="ebook.format"></span></li>
-                  <li>ISBN: <span [innerHTML]="ebook.isbn"></span></li>
                 </ul>
-                <button class="btn btn-primary" routerLink="/ebooks/{{ebook.id}}" type="button">Read more</button>
-                <button *ngIf="loggedAsAdmin" class="btn btn-primary" routerLink="/ebooks/update/{{ebook.id}}"
-                        type="button">
-                  Edit
+                <button class="btn btn-primary mt-1 ml-1" routerLink="/ebooks/{{ebook.shortName}}" type="button">Read
+                  more
                 </button>
-                <button (click)="deleteEbook(ebook.id)" *ngIf="loggedAsAdmin" class="btn btn-danger" type="button">
-                  Delete
+                <button *ngIf="loggedAsAdmin" class="btn btn-primary mt-1 ml-1"
+                        routerLink="/ebooks/update/{{ebook.shortName}}"
+                        type="button">Edit
+                </button>
+                <button (click)="deleteEbook(ebook.id)" *ngIf="loggedAsAdmin" class="btn btn-danger mt-1 ml-1"
+                        type="button">Delete
                 </button>
               </div>
             </div>
@@ -36,12 +38,17 @@
 
 
       <ngb-pagination [(page)]="page" [collectionSize]="6" aria-label="Default pagination"></ngb-pagination>
+
+      <br>
+      <br>
+      <br>
+
     </div>
 
 
     <div class="col-sm-3">
       <div class="bg bg-light border">
-        <!--        <app-search-box></app-search-box>-->
+        <!--                <app-search-box></app-search-box>-->
         <app-categories></app-categories>
       </div>
     </div>

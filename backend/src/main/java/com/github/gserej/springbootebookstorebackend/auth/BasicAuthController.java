@@ -1,6 +1,5 @@
-package com.github.gserej.springbootebookstorebackend.controller;
+package com.github.gserej.springbootebookstorebackend.auth;
 
-import com.github.gserej.springbootebookstorebackend.model.AuthenticationBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

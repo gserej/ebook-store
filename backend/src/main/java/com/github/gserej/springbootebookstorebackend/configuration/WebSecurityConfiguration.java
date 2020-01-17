@@ -40,20 +40,5 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
     }
-
-//    @Bean
-//    public DaoAuthenticationProvider authenticationProvider() {
-//        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-//        auth.setUserDetailsService(userService);
-//        auth.setPasswordEncoder(passwordEncoder());
-//        return auth;
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(authenticationProvider());
-//    }
-
-
 }
 
