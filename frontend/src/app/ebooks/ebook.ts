@@ -8,7 +8,7 @@ export class Ebook {
   publicationYear: number;
   pages: number;
   language = '';
-  format = '';
+  ebookFormat = '';
   isbn = '';
   shortName = '';
 }
