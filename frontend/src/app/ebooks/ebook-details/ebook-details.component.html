@@ -1,17 +1,27 @@
-<div class="container">
-  <div class="row mt-4">
-    <div class="col-sm-9 border">
+<div class="row mt-4">
+  <div class="col-lg-9">
+    <div class="border bg bg-light w-100">
+      <div class="m-5">
+        <h2>{{ebook.title}}</h2>
+        <img [src]="ebook.imageUrl" alt="image not found" class="border rounded" style="max-width: 400px">
+        <ul class="list-unstyled ml-3">
+          <br>
+          <li>Author: <span [innerHTML]="ebook.author"></span></li>
+          <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
+          <li>ISBN: <span [innerHTML]="ebook.isbn"></span></li>
+          <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
+          <li>Language: <span [innerHTML]="ebook.language"></span></li>
+          <li>Format: <span [innerHTML]="ebook.ebookFormat"></span></li>
+        </ul>
+      </div>
+    </div>
 
-      <h1>{{ebook.title}}</h1>
-      <img [src]="ebook.imageUrl" alt="image not found">
-      <ul>
-        <li>Author: <span [innerHTML]="ebook.author"></span></li>
-        <li>Publication Year: <span [innerHTML]="ebook.publicationYear"></span></li>
-        <li>Pages: <span [innerHTML]="ebook.pages"></span></li>
-        <li>Language: <span [innerHTML]="ebook.language"></span></li>
-        <li>Format: <span [innerHTML]="ebook.format"></span></li>
-      </ul>
-
+  </div>
+  <div class="col-lg-3">
+    <div class="bg bg-light border">
+      <!--                <app-search-box></app-search-box>-->
+      <app-categories></app-categories>
     </div>
   </div>
 </div>
+

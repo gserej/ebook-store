@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {first} from 'rxjs/operators';
-import {Ebook} from "../ebook";
-import {EbookService} from "../ebook.service";
+import {Ebook} from '../ebook';
+import {EbookService} from '../ebook.service';
 
 @Component({
   selector: 'app-edit-ebook',
