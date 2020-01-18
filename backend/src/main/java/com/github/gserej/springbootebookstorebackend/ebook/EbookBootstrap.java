@@ -24,6 +24,7 @@ public class EbookBootstrap {
 
             Category categoryJava = new Category("Java", "java");
             Category categorySpring = new Category("Spring", "spring");
+            Category categoryPython = new Category("Python", "python");
 
             Ebook ebook1 = new Ebook();
             ebook1.setTitle("Spring 5: End-To-End Programming: Build enterprise-grade applications using Spring MVC, Hibernate, and RESTful APIs");
@@ -69,16 +70,16 @@ public class EbookBootstrap {
             Ebook ebook;
 
             ebook = new Ebook();
-            ebook.setTitle("Spring 5: End-To-End Programming: Build enterprise-grade applications using Spring MVC, Hibernate, and RESTful APIs");
-            ebook.setShortName("4");
-            ebook.setAuthor("de Oliveira, Claudio Eduardo");
-            ebook.setPages(760);
+            ebook.setTitle("Python for TensorFlow Pocket Primer");
+            ebook.setShortName("python-tensorflow-pocket-primer");
+            ebook.setAuthor("Oswald Campesato");
+            ebook.setPages(218);
             ebook.setPublicationYear(2019);
-            ebook.setImageUrl("https://scanlibs.com/wp-content/cover/spring-5-end-programming-enterprise-grade-apps.jpg");
+            ebook.setImageUrl("https://scanlibs.com/wp-content/cover/python-tensorflow-pocket-primer.jpg");
             ebook.setLanguage("English");
-            ebook.setIsbn("978-1789959666");
+            ebook.setIsbn("978-1683923619");
             ebook.setEbookFormat(EbookFormat.pdf);
-//            ebook.setCategories(categorySet1);
+            ebook.addCategory(categoryPython);
             ebookRepository.save(ebook);
 
             ebook = new Ebook();
