@@ -28,4 +28,9 @@ public class CategoryService {
         Category category = categoryRepository.findById(id).orElseThrow(CategoryNotFoundException::new);
         return categoryMapper.toCategoryDto(category);
     }
+
+    public CategoryDto getCategoryByShortName(String shortName) throws CategoryNotFoundException {
+        Category category = categoryRepository.findByShortName(shortName).orElseThrow(CategoryNotFoundException::new);
+        return categoryMapper.toCategoryDto(category);
+    }
 }

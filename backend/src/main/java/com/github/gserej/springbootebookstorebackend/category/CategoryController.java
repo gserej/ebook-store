@@ -1,9 +1,6 @@
 package com.github.gserej.springbootebookstorebackend.category;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +18,11 @@ class CategoryController {
     @GetMapping("/categories")
     public List<CategoryDto> getAllCategories() {
         return categoryService.getAllCategories();
+    }
+
+    @GetMapping("/categories/name/{categoryShortName}")
+    public CategoryDto getCategoryByShortName(@PathVariable String categoryShortName) throws CategoryNotFoundException {
+        return categoryService.getCategoryByShortName(categoryShortName);
     }
 
 }

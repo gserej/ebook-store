@@ -21,6 +21,10 @@ export class CategoryService {
     return this.http.get(this.baseUrl + '/' + id);
   }
 
+  getCategoryByShortName(shortName: string): Observable<any> {
+    return this.http.get(this.baseUrl + '/name/' + shortName);
+  }
+
   createCategory(ebook: Ebook): Observable<any> {
     return this.http.post(this.baseUrl, ebook);
   }
