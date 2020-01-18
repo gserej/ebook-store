@@ -34,7 +34,7 @@ export class EditEbookComponent implements OnInit {
       publicationYear: ['', Validators.required],
       pages: ['', Validators.required],
       language: ['', Validators.required],
-      format: ['', Validators.required],
+      ebookFormat: ['', Validators.required],
       isbn: ['', Validators.required],
       categories: [],
     });

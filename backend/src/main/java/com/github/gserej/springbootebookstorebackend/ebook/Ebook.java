@@ -23,8 +23,9 @@ public class Ebook {
     @Column(name = "id")
     private Long id;
 
+
     @NonNull
-    @Column(name = "shortname")
+    @Column(name = "shortname", unique = true)
     private String shortName;
 
     @NonNull
@@ -56,7 +57,7 @@ public class Ebook {
     private EbookFormat ebookFormat;
 
     @Column(name = "dateAdded")
-    private LocalDateTime dateAdded;
+    private LocalDateTime dateAdded = LocalDateTime.now();
 
     @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
