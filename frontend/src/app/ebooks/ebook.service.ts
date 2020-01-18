@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Ebook} from './ebook';
+import {Page} from '../pagination/page';
+import {Pageable} from "../pagination/pageable";
 
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +20,21 @@ export class EbookService {
   constructor(private http: HttpClient) {
   }
 
-  getAllEbooks(): Observable<any> {
-    return this.http.get(this.baseEbookUrl);
+
+  getEbooks(pageable: Pageable): Observable<Page<Ebook>> {
+    const url = this.baseEbookUrl
+      + '?page=' + pageable.pageNumber
+      + '&size=' + pageable.pageSize
+      + '&sort=id';
+    return this.http.get<Page<Ebook>>(url, httpOptions);
   }
 
-  getEbooksByCategory(shortName: string): Observable<any> {
-    return this.http.get(this.baseEbookUrl, {
+  getEbooksByCategory(shortName: string, pageable: Pageable): Observable<Page<Ebook>> {
+    const url = this.baseEbookUrl
+      + '?page=' + pageable.pageNumber
+      + '&size=' + pageable.pageSize
+      + '&sort=id';
+    return this.http.get<Page<Ebook>>(url, {
       params: {
         categoryShortName: shortName
       },

@@ -4,6 +4,8 @@ package com.github.gserej.springbootebookstorebackend.ebook;
 import com.github.gserej.springbootebookstorebackend.category.Category;
 import com.github.gserej.springbootebookstorebackend.category.CategoryNotFoundException;
 import com.github.gserej.springbootebookstorebackend.category.CategoryRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,12 +34,15 @@ public class EbookService {
 
     }
 
-    public List<EbookDto> getEbooksByCategory(String categoryShortName) throws CategoryNotFoundException {
+    public Page<EbookDto> getEbooksByPage(Pageable pageable) {
+        return ebookRepository.findAll(pageable)
+                .map(ebookMapper::toEbookDto);
+    }
+
+    public Page<EbookDto> getEbooksByCategory(String categoryShortName, Pageable pageable) throws CategoryNotFoundException {
         Category category = categoryRepository.findByShortName(categoryShortName).orElseThrow(CategoryNotFoundException::new);
-        return ebookRepository.findAllByCategories(category)
-                .stream()
-                .map(ebookMapper::toEbookDto)
-                .collect(Collectors.toList());
+        return ebookRepository.findAllByCategories(category, pageable)
+                .map(ebookMapper::toEbookDto);
     }
 
     public EbookDto getEbookByShortName(String ebookShortName) throws EbookNotFoundException {
@@ -64,8 +69,16 @@ public class EbookService {
 
     public EbookDto updateEbook(Long ebookId, Ebook ebook) throws EbookNotFoundException {
         Ebook retrievedEbook = ebookRepository.findById(ebookId).orElseThrow(EbookNotFoundException::new);
-        retrievedEbook.setAuthor(ebook.getAuthor());
+        retrievedEbook.setShortName(ebook.getShortName());
         retrievedEbook.setTitle(ebook.getTitle());
+        retrievedEbook.setDescription(ebook.getDescription());
+        retrievedEbook.setImageUrl(ebook.getImageUrl());
+        retrievedEbook.setAuthor(ebook.getAuthor());
+        retrievedEbook.setPublicationYear(ebook.getPublicationYear());
+        retrievedEbook.setPages(ebook.getPages());
+        retrievedEbook.setLanguage(ebook.getLanguage());
+
+        retrievedEbook.setIsbn(ebook.getIsbn());
         retrievedEbook.setEbookFormat(ebook.getEbookFormat());
 
         ebookRepository.save(retrievedEbook);

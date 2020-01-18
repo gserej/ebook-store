@@ -4,10 +4,11 @@ package com.github.gserej.springbootebookstorebackend.ebook;
 import com.github.gserej.springbootebookstorebackend.category.CategoryNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,14 +23,16 @@ class EbookController {
         this.ebookService = ebookService;
     }
 
+
     @GetMapping(value = "/ebooks")
-    public List<EbookDto> getAllEbooks() {
-        return ebookService.getAllEbooks();
+    public Page<EbookDto> getEbooks(Pageable pageable) {
+        return ebookService.getEbooksByPage(pageable);
     }
 
     @GetMapping(value = "/ebooks", params = "categoryShortName")
-    public List<EbookDto> getEbooksByCategory(@RequestParam(value = "categoryShortName") String categoryShortName) throws CategoryNotFoundException {
-        return ebookService.getEbooksByCategory(categoryShortName);
+    public Page<EbookDto> getEbooksByCategory(@RequestParam(value = "categoryShortName") String categoryShortName,
+                                              Pageable pageable) throws CategoryNotFoundException {
+        return ebookService.getEbooksByCategory(categoryShortName, pageable);
     }
 
     @GetMapping("/ebooks/{id}")
@@ -41,7 +44,6 @@ class EbookController {
     public EbookDto getEbookByShortName(@PathVariable(value = "id") String ebookShortName) throws EbookNotFoundException {
         return ebookService.getEbookByShortName(ebookShortName);
     }
-
 
     @PostMapping("/ebooks")
     public EbookDto createEbook(@Valid @RequestBody Ebook ebook) {
@@ -57,6 +59,5 @@ class EbookController {
     @DeleteMapping("/ebooks/{id}")
     public void deleteEbook(@PathVariable(value = "id") Long ebookId) throws EbookNotFoundException {
         ebookService.deleteEbook(ebookId);
-
     }
 }

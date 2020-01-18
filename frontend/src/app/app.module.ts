@@ -29,6 +29,7 @@ import {EditEbookComponent} from './ebooks/edit-ebook/edit-ebook.component';
 import {SearchBoxComponent} from './shared/search-box/search-box.component';
 import {EbooksComponent} from './ebooks/ebooks.component';
 import {CategoriesComponent} from './categories/categories.component';
+import {CustomPaginationComponent} from './pagination/custom-pagination/custom-pagination.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {CategoriesComponent} from './categories/categories.component';
     LoginComponent,
     CategoriesComponent,
     SearchBoxComponent,
+    CustomPaginationComponent,
   ],
   imports: [
     NgbModule,

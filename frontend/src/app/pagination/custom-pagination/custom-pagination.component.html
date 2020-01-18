@@ -1,0 +1,15 @@
+<div *ngIf="page" class="card-actions align-items-center justify-content-end">
+  <span class="align-self-center mb-1 mr-2 text-muted">
+    Page {{page.number + 1}} of {{page.totalPages}}
+  </span>
+  <a (click)="previousPage()"
+     [ngClass]="{'disabled': page.first }" [routerLink]=""
+     class="btn btn-outline">
+    <i class="material-icons">chevron_left</i>
+  </a>
+  <a (click)="nextPage()"
+     [ngClass]="{'disabled': page.last }" [routerLink]=""
+     class="btn btn-outline">
+    <i class="material-icons">chevron_right</i>
+  </a>
+</div>
