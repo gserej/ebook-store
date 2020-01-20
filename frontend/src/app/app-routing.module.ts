@@ -10,14 +10,14 @@ import {EbookDetailsComponent} from './ebooks/ebook-details/ebook-details.compon
 
 
 const routes: Routes = [
-  {path: 'about', component: AboutComponent},
-  {path: 'ebooks/create', component: CreateEbookComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '404', component: NotFoundComponent},
   {path: '', component: EbooksComponent},
-  {path: 'ebooks/:id', component: EbookDetailsComponent},
   {path: 'category/:id', component: EbooksComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'ebooks/create', component: CreateEbookComponent},
+  {path: 'ebooks/:id', component: EbookDetailsComponent},
   {path: 'ebooks/update/:id', component: EditEbookComponent},
+  {path: '404', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
