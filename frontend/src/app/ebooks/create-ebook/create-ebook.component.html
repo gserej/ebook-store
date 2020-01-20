@@ -5,36 +5,47 @@
       <form (ngSubmit)="onSubmit()" [formGroup]="addForm">
         <div class="form-group">
           <label for="title">Title:</label>
-          <input class="form-control" formControlName="title" id="title" name="username" placeholder="Title"
+          <input class="form-control" formControlName="title" id="title" name="title" placeholder="Title"
+                 type="text">
+        </div>
+        <div class="form-group">
+          <label for="shortName">Short name</label>
+          <input class="form-control" formControlName="shortName" id="shortName" name="shortName"
+                 placeholder="Short name"
+                 type="text">
+        </div>
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input class="form-control" formControlName="author" id="author" name="author" placeholder="Author"
+                 type="text">
+        </div>
+        <div class="form-group ">
+          <label for="imageUrl">Image Url:</label>
+          <input class="form-control" formControlName="imageUrl" id="imageUrl" name="imageUrl" placeholder="Image Url"
                  type="text">
         </div>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="author">Author:</label>
-            <input class="form-control" formControlName="author" id="author" name="author" placeholder="Author"
-                   type="text">
-          </div>
           <div class="form-group col-md-6">
             <label for="isbn">ISBN number:</label>
             <input class="form-control" formControlName="isbn" id="isbn" name="isbn" placeholder="ISBN number"
                    type="text">
           </div>
+          <div class="form-group col-md-6">
+            <label for="language">Language:</label>
+            <input class="form-control" formControlName="language" id="language" name="language" placeholder="Language"
+                   type="text">
+          </div>
         </div>
         <div class="form-row">
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-3">
             <label for="pages">Pages:</label>
             <input class="form-control" formControlName="pages" id="pages" name="pages" placeholder="Pages"
                    type="number">
           </div>
           <div class="form-group col-md-3">
             <label for="year">Publication Year</label>
-            <input class="form-control" formControlName="pages" id="year" name="pages" placeholder="Publication Year"
+            <input class="form-control" formControlName="pages" id="year" name="pages" placeholder="Year"
                    type="number">
-          </div>
-          <div class="form-group col-md-3">
-            <label for="language">Language:</label>
-            <input class="form-control" formControlName="language" id="language" name="language" placeholder="Language"
-                   type="text">
           </div>
         </div>
         <fieldset class="form-group">
@@ -64,4 +75,7 @@
       </form>
     </div>
   </div>
+  <br/>
+  <br/>
+  <br/>
 </div>

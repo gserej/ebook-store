@@ -23,6 +23,7 @@ export class CreateEbookComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       id: [],
       title: ['', Validators.required],
+      shortName: ['', Validators.required],
       dateAdded: ['', Validators.required],
       description: ['', Validators.required],
       imageUrl: ['', Validators.required],
@@ -39,7 +40,7 @@ export class CreateEbookComponent implements OnInit {
   onSubmit() {
     this.ebookService.createEbook(this.addForm.value)
       .subscribe(() => {
-        this.router.navigate(['ebooks']);
+        this.router.navigate(['']);
       });
   }
 
