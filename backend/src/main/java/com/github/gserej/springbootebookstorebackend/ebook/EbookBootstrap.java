@@ -6,6 +6,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 @Component
 public class EbookBootstrap {
 
@@ -26,6 +29,10 @@ public class EbookBootstrap {
             Category categorySpring = new Category("Spring", "spring");
             Category categoryPython = new Category("Python", "python");
 
+            categoryRepository.save(categoryJava);
+            categoryRepository.save(categorySpring);
+            categoryRepository.save(categoryPython);
+
             Ebook ebook1 = new Ebook();
             ebook1.setTitle("Spring 5: End-To-End Programming: Build enterprise-grade applications using Spring MVC, Hibernate, and RESTful APIs");
             ebook1.setShortName("spring-5-end-programming-enterprise-grade-apps");
@@ -36,8 +43,7 @@ public class EbookBootstrap {
             ebook1.setLanguage("English");
             ebook1.setIsbn("978-1789959666");
             ebook1.setEbookFormat(EbookFormat.pdf);
-            ebook1.addCategory(categoryJava);
-            ebook1.addCategory(categorySpring);
+            ebook1.setCategories(Stream.of(categoryJava, categorySpring).collect(Collectors.toSet()));
             ebookRepository.save(ebook1);
 
             Ebook ebook2 = new Ebook();
@@ -50,8 +56,7 @@ public class EbookBootstrap {
             ebook2.setLanguage("English");
             ebook2.setIsbn("978-1789534757");
             ebook2.setEbookFormat(EbookFormat.epub);
-//            ebook2.addCategory(categoryJava);
-//            ebook2.addCategory(categorySpring);
+            ebook2.setCategories(Stream.of(categoryJava, categorySpring).collect(Collectors.toSet()));
             ebookRepository.save(ebook2);
 
             Ebook ebook3 = new Ebook();
@@ -64,25 +69,23 @@ public class EbookBootstrap {
             ebook3.setLanguage("English");
             ebook3.setIsbn("978-0134477367");
             ebook3.setEbookFormat(EbookFormat.pdf);
-//            ebook3.addCategory(categoryJava);
+            ebook3.setCategories(Stream.of(categoryJava).collect(Collectors.toSet()));
             ebookRepository.save(ebook3);
 
-            Ebook ebook;
+            Ebook ebook4 = new Ebook();
+            ebook4.setTitle("Python for TensorFlow Pocket Primer");
+            ebook4.setShortName("python-tensorflow-pocket-primer");
+            ebook4.setAuthor("Oswald Campesato");
+            ebook4.setPages(218);
+            ebook4.setPublicationYear(2019);
+            ebook4.setImageUrl("https://scanlibs.com/wp-content/cover/python-tensorflow-pocket-primer.jpg");
+            ebook4.setLanguage("English");
+            ebook4.setIsbn("978-1683923619");
+            ebook4.setEbookFormat(EbookFormat.pdf);
+            ebook4.setCategories(Stream.of(categoryPython).collect(Collectors.toSet()));
+            ebookRepository.save(ebook4);
 
-            ebook = new Ebook();
-            ebook.setTitle("Python for TensorFlow Pocket Primer");
-            ebook.setShortName("python-tensorflow-pocket-primer");
-            ebook.setAuthor("Oswald Campesato");
-            ebook.setPages(218);
-            ebook.setPublicationYear(2019);
-            ebook.setImageUrl("https://scanlibs.com/wp-content/cover/python-tensorflow-pocket-primer.jpg");
-            ebook.setLanguage("English");
-            ebook.setIsbn("978-1683923619");
-            ebook.setEbookFormat(EbookFormat.pdf);
-            ebook.addCategory(categoryPython);
-            ebookRepository.save(ebook);
-
-            ebook = new Ebook();
+            Ebook ebook = new Ebook();
             ebook.setTitle("Developing Java Applications with Spring and Spring Boot: Practical Spring and Spring Boot Solutions for Building effective Apps");
             ebook.setShortName("5");
             ebook.setAuthor("Greg L. Turnquist");
@@ -92,7 +95,6 @@ public class EbookBootstrap {
             ebook.setLanguage("English");
             ebook.setIsbn("978-1789534757");
             ebook.setEbookFormat(EbookFormat.epub);
-//            ebook.setCategories(categorySet2);
             ebookRepository.save(ebook);
 
             ebook = new Ebook();
@@ -105,7 +107,6 @@ public class EbookBootstrap {
             ebook.setLanguage("English");
             ebook.setIsbn("978-0134477367");
             ebook.setEbookFormat(EbookFormat.pdf);
-//            ebook.setCategories(categorySet2);
             ebookRepository.save(ebook);
 
             ebook = new Ebook();
@@ -118,7 +119,6 @@ public class EbookBootstrap {
             ebook.setLanguage("English");
             ebook.setIsbn("978-1789959666");
             ebook.setEbookFormat(EbookFormat.pdf);
-//            ebook.setCategories(categorySet1);
             ebookRepository.save(ebook);
 
             ebook = new Ebook();
@@ -131,7 +131,6 @@ public class EbookBootstrap {
             ebook.setLanguage("English");
             ebook.setIsbn("978-1789534757");
             ebook.setEbookFormat(EbookFormat.epub);
-//            ebook.setCategories(categorySet2);
             ebookRepository.save(ebook);
 
             ebook = new Ebook();
@@ -144,7 +143,7 @@ public class EbookBootstrap {
             ebook.setLanguage("English");
             ebook.setIsbn("978-0134477367");
             ebook.setEbookFormat(EbookFormat.pdf);
-//            ebook.setCategories(categorySet2);
+
             ebookRepository.save(ebook);
 
         };

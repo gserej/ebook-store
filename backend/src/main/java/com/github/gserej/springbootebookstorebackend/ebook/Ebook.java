@@ -59,7 +59,7 @@ public class Ebook {
     @Column(name = "dateAdded")
     private LocalDateTime dateAdded = LocalDateTime.now();
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(
             name = "ebook_category",
             joinColumns = @JoinColumn(name = "ebook_id"),
@@ -67,8 +67,4 @@ public class Ebook {
     )
     private Set<Category> categories = new HashSet<>();
 
-    public void addCategory(Category category) {
-        categories.add(category);
-        category.getEbooks().add(this);
-    }
 }
