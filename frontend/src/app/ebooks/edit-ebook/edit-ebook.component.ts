@@ -27,6 +27,7 @@ export class EditEbookComponent implements OnInit {
     this.editForm = this.formBuilder.group({
       id: [],
       title: ['', Validators.required],
+      shortName: ['', Validators.required],
       dateAdded: [],
       description: ['', Validators.required],
       imageUrl: ['', Validators.required],
